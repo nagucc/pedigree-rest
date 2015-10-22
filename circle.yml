@@ -1,0 +1,14 @@
+machine:
+  services:
+    - neo4j
+  node:
+    version: 0.10.22
+dependencies:
+  override:
+    - npm install -g mocha
+    - npm install
+test:
+  override:
+    - curl -d "password=neo" --user neo4j:neo4j http://localhost:7474/user/neo4j/password
+    - node app.js &
+    - NEO_HOST=http://neo4j:neo@localhost:7474 npm test

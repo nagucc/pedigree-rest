@@ -1,0 +1,9 @@
+conceptRestful:
+  image: na57/concepts-rest
+  ports:
+    - "35007:18080"
+  external_links:
+    - neo4j_neo4j_1:neo4j
+  environment:
+    - NEO_HOST=http://neo4j:7474
+  restart: always
